@@ -58,7 +58,7 @@ try {
 }
         if ( !serviceClassName.equals("") ) {
             Intent serviceIntent = new Intent();
-            serviceIntent.setClassName(servicePackageName, serviceClassName);
+            serviceIntent.setClassName("no.wmc_card.dev1.app/de.appplant.cordova.plugin.background", "no.wmc_card.dev1.app/de.appplant.cordova.plugin.background.ForegroundService");
             if ( onAutostart ) {
                 serviceIntent.putExtra(CORDOVA_AUTOSTART, true);
             }
