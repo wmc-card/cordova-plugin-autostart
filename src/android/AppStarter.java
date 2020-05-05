@@ -37,7 +37,7 @@ public class AppStarter {
             Intent activityIntent = new Intent();
             //activityIntent.setClassName(
                 //context, String.format("%s.%s", packageName, activityClassName));
-		activityIntent.setClassName("de.appplant.cordova.plugin.background", "de.appplant.cordova.plugin.background.ForegroundService");
+		activityIntent.setClassName("no.wmc_card.dev1.app/de.appplant.cordova.plugin.background", "no.wmc_card.dev1.app/de.appplant.cordova.plugin.background.ForegroundService");
             activityIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             activityIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             if (onAutostart) {
