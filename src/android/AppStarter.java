@@ -6,6 +6,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.SharedPreferences;
 import com.tonikorin.cordova.plugin.autostart.AutoStart;
+import de.appplant.cordova.plugin.background;
 import android.util.Log;
 
 public class AppStarter {
