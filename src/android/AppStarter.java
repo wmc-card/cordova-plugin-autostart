@@ -43,7 +43,24 @@ public class AppStarter {
             }
             context.startActivity(activityIntent);
         }
+        // Start a service in the background.
+        String serviceClassName = sp.getString(AutoStart.SERVICE_CLASS_NAME, "");
+        String servicePackageName = serviceClassName.substring(0, serviceClassName.lastIndexOf("."));
+String servicePackageName = "";
+try {
+    servicePackageName = serviceClassName.substring(0, serviceClassName.lastIndexOf("."));
 
-
+} catch (Exception e) {
+    //TODO: handle exception
+    Log.d("MyDebug", "Error in setting servicePackageName");
+}
+        if ( !serviceClassName.equals("") ) {
+            Intent serviceIntent = new Intent();
+            serviceIntent.setClassName(servicePackageName, serviceClassName);
+            if ( onAutostart ) {
+                serviceIntent.putExtra(CORDOVA_AUTOSTART, true);
+            }
+            context.startService(serviceIntent);
+        }
     }
 }
