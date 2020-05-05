@@ -43,20 +43,7 @@ public class AppStarter {
             }
             context.startActivity(activityIntent);
         }
-        // Start a service in the background.
-        //String serviceClassName = sp.getString(AutoStart.SERVICE_CLASS_NAME, "");
-	    String serviceClassName = "";
-	String servicePackageName = "";
-    	//servicePackageName = serviceClassName.substring(0, serviceClassName.lastIndexOf("."));
 
-        if ( !serviceClassName.equals("") ) {
-            Intent serviceIntent = new Intent();
-            serviceIntent.setClassName(servicePackageName, serviceClassName);
-            if ( onAutostart ) {
-                serviceIntent.putExtra(CORDOVA_AUTOSTART, true);
-            }
-            context.startService(serviceIntent);
-        }
 
     }
 }
