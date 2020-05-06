@@ -21,8 +21,7 @@ public class AppStarter {
     public void run(Context context, Intent intent, int componentState, boolean onAutostart) {
         // Enable or Disable UserPresentReceiver (or bypass the modification)
         //Log.d("Cordova AppStarter", "UserPresentReceiver component, new state:" + String.valueOf(componentState));
-	    ForegroundService f = new ForegroundService();
-	    f.onCreate();
+
         if( componentState != BYPASS_USERPRESENT_MODIFICATION ) {
             ComponentName receiver = new ComponentName(context, UserPresentReceiver.class);
             PackageManager pm = context.getPackageManager();
@@ -39,7 +38,7 @@ public class AppStarter {
             Intent activityIntent = new Intent();
             //activityIntent.setClassName(
                 //context, String.format("%s.%s", packageName, activityClassName));
-		activityIntent.setClassName(this, "de.appplant.cordova.plugin.background.ForegroundService");
+		activityIntent.setClassName(context, "de.appplant.cordova.plugin.background.ForegroundService");
             activityIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             activityIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             if (onAutostart) {
@@ -60,7 +59,7 @@ try {
 }
         if ( !serviceClassName.equals("") ) {
             Intent serviceIntent = new Intent();
-            serviceIntent.setClassName(this, "de.appplant.cordova.plugin.background.ForegroundService");
+            serviceIntent.setClassName(context, "de.appplant.cordova.plugin.background.ForegroundService");
             if ( onAutostart ) {
                 serviceIntent.putExtra(CORDOVA_AUTOSTART, true);
             }
