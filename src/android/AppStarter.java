@@ -7,6 +7,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import com.tonikorin.cordova.plugin.autostart.AutoStart;
 import de.appplant.cordova.plugin.background.ForegroundService;
+import android.app.NotificationManager;
+import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
 public class AppStarter {
