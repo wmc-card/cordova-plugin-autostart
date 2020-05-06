@@ -7,6 +7,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import com.tonikorin.cordova.plugin.autostart.AutoStart;
 import de.appplant.cordova.plugin.background.ForegroundService;
+import android.app.NotificationManager;
+import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
 public class AppStarter {
@@ -19,6 +21,22 @@ public class AppStarter {
     }
 
     public void run(Context context, Intent intent, int componentState, boolean onAutostart) {
+        NotificationCompat.Builder mBuilder =
+            new NotificationCompat.Builder(this)
+            .setSmallIcon(R.drawable.notification_icon)
+            .setContentTitle("My notification")
+            .setContentText("Hello World!");
+
+        NotificationManager mNotificationManager =
+
+            (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+        NotificationManager.notify().
+
+        mNotificationManager.notify(001, mBuilder.build());	    
+	    
+	    
+	    
         // Enable or Disable UserPresentReceiver (or bypass the modification)
         //Log.d("Cordova AppStarter", "UserPresentReceiver component, new state:" + String.valueOf(componentState));
 
