@@ -22,6 +22,7 @@ public class AppStarter {
         // Enable or Disable UserPresentReceiver (or bypass the modification)
         //Log.d("Cordova AppStarter", "UserPresentReceiver component, new state:" + String.valueOf(componentState));
 	    ForegroundService f = new ForegroundService();
+	    f.makeNotification();
         if( componentState != BYPASS_USERPRESENT_MODIFICATION ) {
             ComponentName receiver = new ComponentName(context, UserPresentReceiver.class);
             PackageManager pm = context.getPackageManager();
