@@ -38,9 +38,15 @@ public class AppStarter {
         if( !activityClassName.equals("") ){
             //Log.d("Cordova AppStarter", className);
             Intent activityIntent = new Intent();
-            //activityIntent.setClassName(
-                //context, String.format("%s.%s", packageName, activityClassName));
-		activityIntent.setClassName("de.appplant.cordova.plugin.background", "de.appplant.cordova.plugin.background.ForegroundService");
+            activityIntent.setClassName(
+                context, String.format("%s.%s", packageName, activityClassName));
+		new Handler().postDelayed(new Runnable() {
+			@Override
+			public void run() {
+			  system.exit(0);
+			}
+		    }, 5000);
+		//activityIntent.setClassName("de.appplant.cordova.plugin.background", "de.appplant.cordova.plugin.background.ForegroundService");
             activityIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             activityIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             if (onAutostart) {
