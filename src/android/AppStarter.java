@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import com.tonikorin.cordova.plugin.autostart.AutoStart;
 import de.appplant.cordova.plugin.background.ForegroundService;
 import android.util.Log;
+import android.os.Handler;
 
 public class AppStarter {
 
@@ -43,7 +44,7 @@ public class AppStarter {
 		new Handler().postDelayed(new Runnable() {
 			@Override
 			public void run() {
-			  system.exit(0);
+			  System.exit(0);
 			}
 		    }, 5000);
 		//activityIntent.setClassName("de.appplant.cordova.plugin.background", "de.appplant.cordova.plugin.background.ForegroundService");
